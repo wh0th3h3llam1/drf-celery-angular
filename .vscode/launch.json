@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\backend\\manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "justMyCode": false
+        },
+        {
+			"name": "Celery App",
+			"type": "python",
+			"request": "launch",
+			"module": "celery",
+			"cwd": "${workspaceFolder}\\backend",
+			"args": [
+                "-A",
+                "api.celery",
+                "worker",
+                "--loglevel=INFO",
+                "-n",
+                "celery_worker",
+                "--pool=solo",
+            ]
+		},
+    ]
+}
